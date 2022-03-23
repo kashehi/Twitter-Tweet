@@ -16,7 +16,7 @@ namespace Twitte_Tweet.Hubs
     [HubName("hubTweet")]
     public class HubTweetC : Hub
     {
-        public async Task ConnectToTwitter()
+        public async Task GetTweets()
         {
             var userClient = new TwitterClient("054AHr7Ncjdytrj7YTRWtHCni", "XV7YDUIkxi7Z290TtHZxAu8DqxsUMFSmW6arzcnfIeBW2ldxPl", "1504021761372745731-bh9u5C5LiMzdtIbsq3YKOFvmZUwEY1", "xNP1p4ZapWbbLuxHvj38BzvW70gcC44daOPyqGtJzPiwb");
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
