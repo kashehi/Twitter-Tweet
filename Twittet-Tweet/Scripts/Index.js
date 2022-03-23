@@ -1,7 +1,6 @@
 ﻿var obj;
 $(document).ready(function () {
     $(function () {
-        debugger;
         // obtain reference to the hub proxy and hub itself
         var theHub = $.connection.hubTweet;
         // this is the function that the server will call to broadcast new tweets
@@ -17,7 +16,7 @@ $(document).ready(function () {
         };
         // this is a function that indicates that connection to the hub has been successful
         $.connection.hub.start().done(function () {
-            theHub.server.GetTweets();
+            theHub.server.getTweets();
 
         });
 
