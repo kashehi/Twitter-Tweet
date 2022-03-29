@@ -315,6 +315,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Forms\Tweet.html" />
     <Content Include="Forms\Index.html" />
+    <Content Include="Forms\ValidateTwitterAuth.html" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -327,6 +328,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\global.js" />
     <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -359,7 +361,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AuthenticationConfig.cs" />
+    <Compile Include="Controllers\AuthenticationConfigController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
