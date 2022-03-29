@@ -22,13 +22,18 @@ namespace Twitte_Tweet.Hubs
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            var sampleStream = userClient.Streams.CreateSampleStream();
-            sampleStream.TweetReceived += (sender, eventArgs) =>
-            {
-                Clients.All.broadcast(eventArgs.Tweet.FullText + ";" + eventArgs.Tweet.CreatedAt + ";" + eventArgs.Tweet.CreatedBy);
-            };
+            //var sampleStream = userClient.Streams.CreateSampleStream();
+            //sampleStream.TweetReceived += (sender, eventArgs) =>
+            //{
+            //    Clients.All.broadcast(eventArgs.Tweet.FullText + ";" + eventArgs.Tweet.CreatedAt + ";" + eventArgs.Tweet.CreatedBy);
+            //};
 
-            await sampleStream.StartAsync();
+            //await sampleStream.StartAsync();
+            userClient.Config.HttpRequestTimeout = TimeSpan.FromSeconds(20);
+            await userClient.RateLimits.ClearRateLimitCacheAsync();
+            var homeTimeline = await userClient.Timelines.GetHomeTimelineAsync();
+            Clients.All.broadcast(homeTimeline);
+            await userClient.Timelines.GetHomeTimelineAsync();
         }
     }
 }

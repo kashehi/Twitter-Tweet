@@ -13,6 +13,7 @@ namespace Twittet_Tweet.Hub
         {
            //Connect hub To tunel
             app.MapSignalR();
+
         }
     }
 }
