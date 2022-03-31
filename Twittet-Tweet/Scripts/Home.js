@@ -1,7 +1,8 @@
 ﻿var obj;
 $(document).ready(function () {
     $(function () {
-        TwitterAuth();
+        CheckState();
+
         // obtain reference to the hub proxy and hub itself
         var theHub = $.connection.hubTweet;
         // this is the function that the server will call to broadcast new tweets
@@ -31,6 +32,20 @@ $(document).ready(function () {
 
 });
 
+function CheckState() {
+    Ajax("CkeckState/CheckStateUser", null, SuccessCheckState, function () { }, "get");
+}
+
+function SuccessCheckState(response) {
+    debugger;
+    if (response == "") {
+        TwitterAuth();
+    }
+    else {
+        alert("ok")
+    }
+}
+
 function TwitterAuth() {
     Ajax("Home/TwitterAuth", null, SuccessTwitterAuth, function () { }, "get");
 }
@@ -38,3 +53,5 @@ function TwitterAuth() {
 function SuccessTwitterAuth(response) {
     window.location.replace(response);
 }
+
+

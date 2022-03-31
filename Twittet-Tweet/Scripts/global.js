@@ -1,4 +1,6 @@
-﻿function Ajax(url, data, onDone, onFail, type) {
+﻿
+
+function Ajax(url, data, onDone, onFail, type) {
     type = type || "post";
 
     if (type.toLowerCase().trim() == "post") {

@@ -1,31 +1,100 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body {
+    background: #e6ecf0;
+    font-family: 'Asap', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+img {
+    max-width: 100%;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+.avator {
+    border-radius: 100px;
+    width: 48px;
+    margin-right: 15px;
 }
 
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
+.tweet-wrap {
+    max-width: 490px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 3px;
+    padding: 30px;
+    border-bottom: 1px solid #e6ecf0;
+    border-top: 1px solid #e6ecf0;
+}
+
+.tweet-header {
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+}
+
+.tweet-header-info {
+    font-weight: bold;
+}
+
+    .tweet-header-info span {
+        color: #657786;
+        font-weight: normal;
+        margin-left: 5px;
     }
 
-    .body-content {
-        padding: 0;
+    .tweet-header-info p {
+        font-weight: normal;
+        margin-top: 5px;
     }
+
+.tweet-img-wrap {
+    padding-left: 60px;
+}
+
+.tweet-info-counts {
+    display: flex;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+    .tweet-info-counts div {
+        display: flex;
+        margin-right: 20px;
+    }
+
+        .tweet-info-counts div svg {
+            color: #657786;
+            margin-right: 10px;
+        }
+
+@media screen and (max-width:430px) {
+    body {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .tweet-header {
+        flex-direction: column;
+    }
+
+        .tweet-header img {
+            margin-bottom: 20px;
+        }
+
+    .tweet-header-info p {
+        margin-bottom: 30px;
+    }
+
+    .tweet-img-wrap {
+        padding-left: 0;
+    }
+
+    .tweet-info-counts {
+        display: flex;
+        margin-left: 0;
+    }
+
+        .tweet-info-counts div {
+            margin-right: 10px;
+        }
 }

@@ -3,9 +3,11 @@ using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.Net.Http.Server;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -61,9 +63,13 @@ namespace Twittet_Tweet.Controllers
         }
         //a url that the user will be redirected to after having approved the application
         [HttpGet]
-        public async Task<IHttpActionResult> ValidateTwitterAuth()
+        public async Task<HttpResponseMessage> ValidateTwitterAuth()
         {
-            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            try
+            {
+                HttpContext.Current.Session["Authenticated"] = "IsAuthenticated";
+
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
@@ -81,18 +87,25 @@ namespace Twittet_Tweet.Controllers
 
             //  the user is now authenticated!
             var userClient = new TwitterClient(userCreds);
-
+            Credentials.LastAuthenticatedCredentials = userCreds;
             var user = await userClient.Users.GetAuthenticatedUserAsync();
 
-            //var hubContext = GlobalHost.ConnectionManager.GetHubContext<HubTweetC>();
-            //var homeTimeline = await userClient.Timelines.GetHomeTimelineAsync();
-            //hubContext.Clients.All.broadcast(homeTimeline);
-            //await userClient.Timelines.GetHomeTimelineAsync();
-
+            //TweetController _tweet = new TweetController();
+            //await _tweet.GetTimeLine(new TwitterClient(userCreds));
             HttpResponseMessage result = myApiController.Request.CreateResponse(user);
-            var response = ResponseMessage(result);
-            return response;
+            var fileContents = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Forms/ValidateTwitterAuth.html"));
+            var response = new HttpResponseMessage();
+            response.Content = new StringContent(fileContents);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+           
 
+            return (response);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }
