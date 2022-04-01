@@ -45,7 +45,7 @@ namespace Twittet_Tweet.Controllers
                 Request = new System.Net.Http.HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
             };
-            HttpResponseMessage result = ResponseMessage(myApiController.Request.CreateResponse(authenticationRequestToken.AuthorizationURL);
+            HttpResponseMessage result =(myApiController.Request.CreateResponse(authenticationRequestToken.AuthorizationURL));
             var response = ResponseMessage(result);
             return response;
 
