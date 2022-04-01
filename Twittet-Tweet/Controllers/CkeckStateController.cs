@@ -18,14 +18,11 @@ namespace Twittet_Tweet.Controllers
             {
                 var Authenticated = session["Authenticated"].ToString();
                 return Authenticated;
-
-
             }
             else
             {
                 return "";
             }
-
 
         }
     }

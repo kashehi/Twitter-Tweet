@@ -1,27 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.SignalR;
+﻿using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System.Threading.Tasks;
 using Tweetinvi;
 using System.Net;
-using Tweetinvi.Models;
-using System.Threading;
-using Tweetinvi.Streams;
 using Twittet_Tweet.Classes;
-using Tweetinvi.Client;
 
 namespace Twitte_Tweet.Hubs
 {
     [HubName("hubTweet")]
-    public class HubTweetC : Hub<Twittet_Tweet.Classes.ITweet>
+    public class HubTweetC : Hub
     {
-        public async Task GetTweets(ITimelinesClient Timeline)
+        public async Task GetTweets()
         {
-            await Clients.All.broadcast(Timeline);
+            var authenticateduser = TwitterApiCredentials.LastAuthenticatedCredentials;
+            var userCredentials = TwitterApiCredentials.GetAppCredentials();
+            var userClient = new TwitterClient(userCredentials.ConsumerKey, userCredentials.ConsumerSecret, authenticateduser.AccessToken, authenticateduser.AccessTokenSecret);
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            var sampleStream = userClient.Streams.CreateSampleStream();
+            sampleStream.TweetReceived += (sender, eventArgs) =>
+            {
+                Clients.All.broadcast(eventArgs.Tweet);
+            };
 
+            await sampleStream.StartAsync();
         }
     }
 }

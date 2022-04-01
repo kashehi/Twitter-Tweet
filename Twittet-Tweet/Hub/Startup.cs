@@ -11,9 +11,8 @@ namespace Twittet_Tweet.Hub
     {
         public void Configuration(IAppBuilder app)
         {
-           //Connect hub To tunel
+            //Connect hub To tunel
             app.MapSignalR();
-
         }
     }
 }
