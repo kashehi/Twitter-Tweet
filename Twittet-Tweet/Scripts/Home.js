@@ -50,7 +50,7 @@ function SuccessCheckState(response) {
 }
 
 function TwitterAuth() {
-    Ajax("Home/TwitterAuth", null, SuccessTwitterAuth, function () { }, "get");
+    Ajax("Authenticate/TwitterAuth", null, SuccessTwitterAuth, function () { }, "get");
 }
 
 function SuccessTwitterAuth(response) {
