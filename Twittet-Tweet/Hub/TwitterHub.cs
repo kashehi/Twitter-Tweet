@@ -22,7 +22,7 @@ namespace Twitte_Tweet.Hubs
             {
                 Clients.All.broadcast(eventArgs.Tweet);
                 //Delay for show tweets
-                Thread.Sleep(80000);
+                Thread.Sleep(5000);
             };
             await sampleStream.StartAsync();
 
