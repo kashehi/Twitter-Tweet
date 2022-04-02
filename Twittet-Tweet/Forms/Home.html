@@ -1,25 +1,82 @@
 ﻿<!DOCTYPE html>
+f
 <html>
 <head>
-    <meta />
-    <title>Home</title>
+
+    <title>Tweet Stream</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../Content/Site.css" rel="stylesheet" />
-    <script src="../Scripts/jquery-3.3.1.min.js"></script>
-    <script src="../Scripts/jquery.signalR-2.4.3.min.js"></script>
-    <script src="../signalr/hubs"></script>
-    <script src="../Scripts/global.js"></script>
-    <script src="../Scripts/Home.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.signalR-2.4.3.min.js"></script>
+    <script type="text/javascript" src="../signalr/hubs"></script>
+    <script src="../Scripts/UserDefined/Home.js"></script>
+    <script src="../Scripts/UserDefined/global.js"></script>
+   <script src="../Scripts/TemplateScript/script.js"></script>
 </head>
 <body>
-    <div>
-        <input type="text" id="searchfield" placeholder="Enter text" />
-        <select id='filterstream'>
-            <option value="text content">Location</option>
-            <option value="Green">Tweet published User</option>
-            <option value="Tweet location">White</option>
-        </select>
-        <button class="button">Serach</button>
+    <div class="main">
+        <div class="main_resize">
+            <div class="header">
+                <div class="logo">
+                    <h1><a href="#"><span>Shortcut</span>Company<small>TweetStream</small></a></h1>
+                </div>
+                <div class="search">
+                    <form method="get" id="search" action="#">
+                        <span>
+                            <input type="text" value="Search..." name="s" id="s" />
+                            <input name="searchsubmit" type="image" src="../images/search.gif" value="Go" id="searchsubmit" class="btn" />
+                        </span>
+                    </form>
+                    <!--/searchform -->
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="menu_nav">
+                    <ul>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="support.html">Support</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                    <div class="clr"></div>
+                </div>
+                <div class="hbg"><img src="../images/header_images.jpg" width="923" height="291" alt="" /></div>
+            </div>
+            <div class="content">
+                <div class="content_bg">
+                    <div class="mainbar">
+                        <div class="tweet-wrapper"></div>
+                    </div>
+                    <div class="sidebar">
+                        <div class="gadget">
+                            <h2 class="star"><span>Sidebar</span> Menu</h2>
+                            <div class="clr"></div>
+                            <ul class="sb_menu">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">TemplateInfo</a></li>
+                                <li><a href="#">Style Demo</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Archives</a></li>
+                                <li><a href="#">Web Templates</a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+        </div>
+        <div class="fbg">
+           
+        </div>
     </div>
-    <div class="tweet-wrap1"></div>
+    <div class="footer">
+
+    </div>
+    <div align=center>
+        All Rights Reserved © Shortcut 2022<a href='https://shortcut.io/sweden/'></a>
+    </div>
 </body>
 </html>

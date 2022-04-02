@@ -47,6 +47,9 @@
     <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="EasyAsyncCancel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyAsyncCancel.2.0.0\lib\netstandard2.0\EasyAsyncCancel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -334,6 +337,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\AuthenticateUser.html" />
     <Content Include="Forms\Tweet.html" />
     <Content Include="Forms\Home.html" />
     <Content Include="Forms\ValidateTwitterAuth.html" />
@@ -347,10 +351,35 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\fbg_bg.jpg" />
+    <Content Include="images\fbg_line.gif" />
+    <Content Include="images\header_images.jpg" />
+    <Content Include="images\images_1.jpg" />
+    <Content Include="images\images_2.jpg" />
+    <Content Include="images\main_bg.jpg" />
+    <Content Include="images\menu_line.jpg" />
+    <Content Include="images\pic_1.jpg" />
+    <Content Include="images\pic_2.jpg" />
+    <Content Include="images\pic_3.jpg" />
+    <Content Include="images\pic_4.jpg" />
+    <Content Include="images\pic_5.jpg" />
+    <Content Include="images\pic_6.jpg" />
+    <Content Include="images\qoute_1.gif" />
+    <Content Include="images\qoute_2.gif" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="images\submit.gif" />
+    <Content Include="images\userpic.gif" />
+    <Content Include="Scripts\TemplateScript\arial.js" />
+    <Content Include="Scripts\TemplateScript\cufon-yui.js" />
+    <Content Include="Scripts\TemplateScript\cuf_run.js" />
+    <Content Include="Scripts\TemplateScript\script.js" />
+    <Content Include="Scripts\UserDefined\AuthenticateUser.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\global.js" />
-    <Content Include="Scripts\Home.js" />
+    <Content Include="Scripts\UserDefined\global.js" />
+    <Content Include="Scripts\UserDefined\Home.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />

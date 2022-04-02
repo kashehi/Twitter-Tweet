@@ -16,8 +16,8 @@ namespace Twittet_Tweet.Controllers
             var session = HttpContext.Current.Session;
             if (session["Authenticated"] != null)
             {
-                var Authenticated = session["Authenticated"].ToString();
-                return Authenticated;
+                var authenticated = session["Authenticated"].ToString();
+                return authenticated;
             }
             else
             {

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Tweetinvi;
 using System.Net;
 using Twittet_Tweet.Classes;
+using System;
+using System.Threading;
 
 namespace Twitte_Tweet.Hubs
 {
@@ -15,16 +17,15 @@ namespace Twitte_Tweet.Hubs
             var authenticateduser = TwitterApiCredentials.LastAuthenticatedCredentials;
             var userCredentials = TwitterApiCredentials.GetAppCredentials();
             var userClient = new TwitterClient(userCredentials.ConsumerKey, userCredentials.ConsumerSecret, authenticateduser.AccessToken, authenticateduser.AccessTokenSecret);
-            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             var sampleStream = userClient.Streams.CreateSampleStream();
             sampleStream.TweetReceived += (sender, eventArgs) =>
             {
                 Clients.All.broadcast(eventArgs.Tweet);
+                //Delay for show tweets
+                Thread.Sleep(80000);
             };
-
             await sampleStream.StartAsync();
+
         }
     }
 }
