@@ -1,17 +1,6 @@
 ﻿$(document).ready(function () {
-   CheckState();
-   });
-function CheckState() {
-    Ajax("CkeckState/CheckStateUser", null, SuccessCheckState, function () { }, "get");
-}
-
-function SuccessCheckState(response) {
-
-    if (response == "") {
-        TwitterAuth();
-    }
-
-}
+    TwitterAuth();
+});
 
 function TwitterAuth() {
     Ajax("Authenticate/TwitterAuth", null, SuccessTwitterAuth, function () { }, "get");

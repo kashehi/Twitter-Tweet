@@ -30,23 +30,29 @@ namespace Twittet_Tweet.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> TwitterAuth()
         {
-            //To recognize display duthPage at first time
-            HttpContext.Current.Session["Authenticated"] = "IsAuthenticated";
             var authenticationRequestId = Guid.NewGuid().ToString();
+
             var redirectPath = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port + "/api/Authenticate/ValidateTwitterAuth";
+
             // Add the user identifier as a query parameters that will be received by `ValidateTwitterAuth`
             var redirectURL = _myAuthRequestStore.AppendAuthenticationRequestIdToCallbackUrl(redirectPath, authenticationRequestId);
+
             // Initialize the authentication process
             var authenticationRequestToken = await AppClient.Auth.RequestAuthenticationUrlAsync(redirectURL);
+
             // Store the token information in the store
             await _myAuthRequestStore.AddAuthenticationTokenAsync(authenticationRequestId, authenticationRequestToken);
+
             var myApiController = new AuthenticateController
             {
                 Request = new System.Net.Http.HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
             };
+
             HttpResponseMessage result = (myApiController.Request.CreateResponse(authenticationRequestToken.AuthorizationURL));
+
             var response = ResponseMessage(result);
+
             return response;
 
         }
@@ -56,6 +62,7 @@ namespace Twittet_Tweet.Controllers
         public async Task<HttpResponseMessage> ValidateTwitterAuth()
         {
             var response = new HttpResponseMessage();
+
             var myApiController = new AuthenticateController
             {
                 Request = new System.Net.Http.HttpRequestMessage(),
@@ -64,17 +71,27 @@ namespace Twittet_Tweet.Controllers
 
             // Extract the information from the redirection url
             var requestParameters = await RequestCredentialsParameters.FromCallbackUrlAsync(Request.RequestUri.Query.ToString(), _myAuthRequestStore);
+
             // Request Twitter to generate the credentials.
             var userCreds = await AppClient.Auth.RequestCredentialsAsync(requestParameters);
+
             //  the user is now authenticated!
             var userClient = new TwitterClient(userCreds);
+
             TwitterApiCredentials.LastAuthenticatedCredentials = userCreds;
+
             var user = await userClient.Users.GetAuthenticatedUserAsync();
-            HttpContext.Current.Session["Authenticated"] = "IsAuthenticated";
+
+            ProfileInfo.ProfileInformation = user;
+
             HttpResponseMessage result = myApiController.Request.CreateResponse(user);
+
             var fileContents = File.ReadAllText(HttpContext.Current.Server.MapPath("~/Forms/ValidateTwitterAuth.html"));
+
             response.Content = new StringContent(fileContents);
+
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+
             return (response);
 
         }
