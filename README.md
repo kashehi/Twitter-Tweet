@@ -6,11 +6,17 @@ Architechture:
 
 Asp.net WebAPI WebForm
 
+C#
+
 Signalr
 
 Tweetinvi
 
-.Net 4.7
+Jquery
+
+Html
+
+Css
 
 
 Features:
