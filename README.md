@@ -14,6 +14,8 @@ Tweetinvi (https://linvi.github.io/tweetinvi/dist/index.html)
 
 Jquery
 
+Ajax
+
 Html
 
 Css
