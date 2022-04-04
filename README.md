@@ -36,7 +36,7 @@ Css
 
 •	Make performance better
 
-•	Add more some features of twitter
+•	Add some other features of twitter
 
 ### **How to compile**:
 
