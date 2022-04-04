@@ -1,8 +1,8 @@
-### Twitter API
+# **Twitter API**
 
-Twitter Tweet Real-time in .Net
+## Twitter Tweet Real-time in .Net
 
-### Architechture:
+### **Architechture**:
 
 Asp.net WebAPI WebForm
 
@@ -10,7 +10,7 @@ C#
 
 Signalr
 
-Tweetinvi
+Tweetinvi (https://linvi.github.io/tweetinvi/dist/index.html)
 
 Jquery
 
@@ -19,7 +19,7 @@ Html
 Css
 
 
-### Features:
+### **Features**:
 
 •	Authenticate User In Login
 
@@ -32,13 +32,13 @@ Css
 •	Show Last Trends Real-time
 
 
-### Upcoming:
+### **Upcoming**:
 
 •	Make performance better
 
 •	Add more some features of twitter
 
-### How to compile:
+### **How to compile**:
 
 1.	Clone the project.
 2.	Build and run
